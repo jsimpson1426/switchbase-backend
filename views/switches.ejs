@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <title>Node File Uploads</title>
+</head>
+<body>
+
+    <div id="app" class="container">
+        <h1>File Upload</h1>
+    
+        <%= typeof msg != 'undefined' ? msg : '' %>
+
+        <form action="/api/switches/upload" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="file-field input-field col s3">
+                    <div class="btn grey">
+                        <span>File</span>
+                        <input name="myImage" type="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="name" id="name" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.name : '' %>>
+                    <label for="name">Name</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input name="type" id="type" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.type : '' %>>
+                    <label for="type">Type</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="actuationDistance" id="actuationDistance" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.actuationDistance : '' %>>
+                    <label for="actuationDistance">Actuation Distance</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="bottomDistance" id="bottomDistance" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.bottomDistance : '' %>>
+                    <label for="bottomDistance">Bottom Distance</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input name="actuationForce" id="actuationForce" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.actuationForce : '' %>>
+                    <label for="actuationForce">Actuation Force</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="bottomForce" id="bottomForce" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.bottomForce : '' %>>
+                    <label for="bottomForce">Bottom Force</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="mountingType" id="mountingType" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.mountingType : '' %>>
+                    <label for="mountingType">Mounting Type</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input name="manufacturer" id="manufacturer" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.manufacturer : '' %>>
+                    <label for="manufacturer">Manufacturer</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="brand" id="brand" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.brand : '' %>>
+                    <label for="brand">Brand</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="stemMaterial" id="stemMaterial" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.stemMaterial : '' %>>
+                    <label for="stemMaterial">Stem Material</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s4">
+                    <input name="topMaterial" id="topMaterial" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.topMaterial : '' %>>
+                    <label for="topMaterial">Top Material</label>
+                </div>
+                <div class="input-field col s4">
+                    <input name="bottomMaterial" id="bottomMaterial" type="text" class="validate" value=<%= typeof data != 'undefined' ? data.bottomMaterial : '' %>>
+                    <label for="bottomMaterial">Bottom Material</label>
+                </div>
+            </div>
+
+            <div class="input-field col">
+                <p>Is this a FrankenSwitch?</p>
+                <p>
+                    <label>
+                        <input name="frankenGroup" id="frankenGroup1" type="radio" checked />
+                        <span>No</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input name="frankenGroup" id="frankenGroup2" type="radio" />
+                        <span>Yes</span>
+                    </label>
+                </p>
+            </div>
+
+            <div class="input-field col">
+                <p>Is this a Silent Switch?</p>
+                <p>
+                    <label>
+                        <input name="silentGroup" id="silentGroup1" type="radio" value="no" checked />
+                        <span>No</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input name="silentGroup" id="silentGroup2" type="radio" value="no"/>
+                        <span>Yes</span>
+                    </label>
+                </p>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+        </form>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
